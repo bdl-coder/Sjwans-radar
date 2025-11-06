@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Waar is Sjwans?</title>
+    <style>
+        body { font-family: "Comic Sans MS", Arial; background: #f0f0f0; text-align: center; padding: 30px; }
+        .card { background: white; width: 550px; margin: 0 auto; padding: 25px; border-radius: 15px; box-shadow: 0 0 15px #ccc; }
+        img { width: 200px; border-radius: 50%; margin: 15px 0; }
+        a { display: inline-block; padding: 10px 20px; background: #007bff; color: white; border-radius: 5px; text-decoration: none; }
+        a:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>{{ status.emoji }} Waar is Sjwans?</h1>
+        <img src="{{ url_for('static', filename=status.img) }}" alt="Sjwans status">
+        {% if last_sighting %}
+            <p><strong>{{ last_sighting.name }}</strong> zag Sjwans voor het laatst op <strong>{{ last_sighting.date }}</strong>.</p>
+            <p>{{ status.text }}</p>
+        {% else %}
+            <p>{{ status.text }}</p>
+        {% endif %}
+        <a href="{{ url_for('update') }}">Ik heb Sjwans gezien!</a>
+        <h3>📜 Archief</h3>
+        <ul style="list-style:none; padding:0;">
+        {% for s in sightings %}
+            <li>{{ s.date }} — {{ s.name }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
