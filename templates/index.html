@@ -4,12 +4,65 @@
     <meta charset="UTF-8">
     <title>Waar is Sjwans?</title>
     <style>
-        body { font-family: "Comic Sans MS", Arial; background: #f0f0f0; text-align: center; padding: 30px; }
-        .card { background: white; width: 550px; margin: 0 auto; padding: 25px; border-radius: 15px; box-shadow: 0 0 15px #ccc; }
-        img { width: 200px; border-radius: 50%; margin: 15px 0; }
-        a { display: inline-block; padding: 10px 20px; background: #007bff; color: white; border-radius: 5px; text-decoration: none; }
-        a:hover { background: #0056b3; }
-    </style>
+    body {
+        font-family: "Comic Sans MS", Arial;
+        background: linear-gradient(135deg, #f0f0f0, #e0eaff);
+        text-align: center;
+        padding: 30px;
+        overflow-x: hidden;
+    }
+
+    .card {
+        background: white;
+        width: 550px;
+        margin: 0 auto;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px #ccc;
+        animation: floatIn 1s ease-out;
+    }
+
+    @keyframes floatIn {
+        from { transform: translateY(40px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    img {
+        width: 200px;
+        border-radius: 50%;
+        margin: 15px 0;
+        animation: pulse 4s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    a {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: transform 0.2s, background 0.3s;
+    }
+
+    a:hover {
+        background: #0056b3;
+        transform: scale(1.1);
+    }
+
+    ul li {
+        animation: fadeIn 0.5s ease-in both;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
 </head>
 <body>
     <div class="card">
